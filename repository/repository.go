@@ -37,8 +37,8 @@ type Container struct {
 	Name    string
 }
 
-const CentralConfigPath = "/app-central-config"
-const OtherConfigPathPrefix = "/app-monetization"
+const CentralConfigPath = "/central-config"
+const OtherConfigPathPrefix = "/monetization"
 
 func NewRepository(client *clientv3.Client, logger log.Logger) (*repository, error) {
 

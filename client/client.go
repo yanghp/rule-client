@@ -233,7 +233,7 @@ func NewRuleEngine(opt ...Option) (*RuleEngine, error) {
 		logger:      log.NewNopLogger(),
 		listOfRules: make([]string, 0),
 		env:         kconf.Env("production"),
-		dmpAddr:     "localhost:8181",
+		dmpAddr:     "localhost:8080",
 		limit:       1000,
 	}
 	for _, o := range opt {

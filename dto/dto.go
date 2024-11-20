@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/spf13/cast"
+	"github.com/yanghp/rule-client/pkg"
 	"hash/fnv"
 	"strconv"
 	"time"
@@ -144,7 +145,7 @@ func (p Payload) AB(a, b int) bool {
 	if p.GrowId == 0 {
 		return false
 	}
-	return algorithm.AB(int(p.GrowId), a, b)
+	return pkg.AB(int(p.GrowId), a, b)
 }
 
 func (p Payload) Random() int32 {

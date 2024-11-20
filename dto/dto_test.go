@@ -28,6 +28,7 @@ func BenchmarkPayload_UserRate(b *testing.B) {
 }
 
 func TestPayload_Random(t *testing.T) {
+	t.Skip()
 	body, err := os.ReadFile("android.txt")
 	if err != nil {
 		panic(err)

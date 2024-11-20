@@ -2,6 +2,7 @@ package entity
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-multierror"
 
 	"github.com/fatih/structs"
 	"github.com/knadh/koanf"

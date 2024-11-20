@@ -2,6 +2,8 @@ package entity
 
 import (
 	"fmt"
+	"github.com/knadh/koanf/parsers/yaml"
+	"github.com/knadh/koanf/providers/rawbytes"
 	"io"
 	"io/ioutil"
 
@@ -102,7 +104,7 @@ func NewRules(reader io.Reader, logger log.Logger) Ruler {
 		b = []byte("{}")
 	}
 
-	err = c.Load(rawbytes.Provider(b), kyaml.Parser())
+	err = c.Load(rawbytes.Provider(b), yaml.Parser())
 	if err != nil {
 		level.Warn(logger).Log("err", errors.Wrap(err, "cannot load yaml"))
 	}
@@ -132,7 +134,7 @@ func ValidateRules(reader io.Reader) error {
 		return &ErrInvalidRules{err.Error()}
 	}
 	c := koanf.New(".")
-	err = c.Load(rawbytes.Provider(value), kyaml.Parser())
+	err = c.Load(rawbytes.Provider(value), yaml.Parser())
 	if err != nil {
 		return &ErrInvalidRules{err.Error()}
 	}

@@ -95,7 +95,7 @@ func (ar *AdvancedRuleCollection) Calculate(payload *dto.Payload) (dto.Data, err
 		for k, v := range rest {
 			newMap[k] = v
 		}
-		newMap[contract.TagKey] = index
+		newMap["abRule"] = index
 		return newMap, nil
 	}
 	return dto.Data{}, nil

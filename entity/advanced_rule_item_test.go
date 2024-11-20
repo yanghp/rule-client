@@ -1,6 +1,8 @@
 package entity
 
 import (
+	"github.com/knadh/koanf/parsers/yaml"
+	"github.com/knadh/koanf/providers/rawbytes"
 	"testing"
 
 	"github.com/knadh/koanf"

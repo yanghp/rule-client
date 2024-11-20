@@ -5,6 +5,9 @@ import (
 	"context"
 	"crypto/md5"
 	"fmt"
+	"github.com/knadh/koanf/parsers/yaml"
+	"github.com/knadh/koanf/providers/rawbytes"
+	clientv3 "go.etcd.io/etcd/client/v3"
 	"io"
 	"io/ioutil"
 	"strings"
@@ -122,7 +125,7 @@ func readCentralConfigBytes(b []byte) (map[string]string, error) {
 		centralRules entity.CentralRules
 	)
 	c := koanf.New(".")
-	err = c.Load(rawbytes.Provider(b), kyaml.Parser())
+	err = c.Load(rawbytes.Provider(b), yaml.Parser())
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to load central config")
 	}
